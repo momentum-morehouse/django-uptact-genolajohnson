@@ -46,3 +46,8 @@ def delete_contact(request, pk):
 
     return render(request, "contacts/delete_contact.html",
                   {"contact": contact})
+
+
+class PromiseCreateView(CreateView):
+    model = Promise
+    form_class = PromiseForm
