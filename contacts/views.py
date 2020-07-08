@@ -47,7 +47,9 @@ def delete_contact(request, pk):
     return render(request, "contacts/delete_contact.html",
                   {"contact": contact})
 
-
-class PromiseCreateView(CreateView):
-    model = Promise
-    form_class = PromiseForm
+def list_notes(request, pk):
+    contact = get_object_or_404(Contact, pk=pk)
+    notes = Notes.objects.filter(contact=contact)
+# class PromiseCreateView(CreateView):
+#     model = Promise
+#     form_class = PromiseForm

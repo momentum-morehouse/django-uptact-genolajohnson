@@ -1,5 +1,6 @@
 from django import forms
 from .models import Contact
+from .models import Notes
 
 
 class ContactForm(forms.ModelForm):
@@ -17,22 +18,26 @@ class ContactForm(forms.ModelForm):
             'birthday',
         ]
 
-
-from django import forms
-from django.forms import ModelForm
-
-from .models import Promise
-
-
-class DateInput(forms.DateInput):
-    input_type = 'date'
-
-
-class PromiseForm(ModelForm):
-
-    class Meta:
-        model = Promise
-        fields = ['title', 'description', 'made_on']
         widgets = {
-            'made_on': DateInput(),
-        }
+        'birthday': forms.DateInput(format=('%m/%d/%Y'), attrs={'class': 'form-control', 'placeholder': 'Select a date', 'type':'date'}),
+      }
+
+
+# from django import forms
+# from django.forms import ModelForm
+
+# from .models import Promise
+
+
+# class DateInput(forms.DateInput):
+#     input_type = 'date'
+
+
+# class PromiseForm(ModelForm):
+
+#     class Meta:
+#         model = Promise
+#         fields = ['title', 'description', 'made_on']
+#         widgets = {
+#             'made_on': DateInput(),
+#         }

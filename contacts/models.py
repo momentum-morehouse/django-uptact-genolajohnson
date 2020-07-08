@@ -21,12 +21,11 @@ class Contact(models.Model):
     state = USStateField(null=True, blank=True)
     zip_code = USZipCodeField(null=True, blank=True)
 
+def __str__(self):
+      return self.name
 
+class Note(models.Model):
+  contact = models.ForeignKey(Contact, on_delete=models.CASCADE)
+  text = models.CharField(max_length=255, null=True, blank=True)
+  date_added = models.DateTimeField(auto_now_add=True)
 
-# from django.db import models
-
-
-class Promise(models):
-    title = models.CharField(max_length=300)
-    description = models.TextField(blank=True)
-    made_on = models.DateField()
