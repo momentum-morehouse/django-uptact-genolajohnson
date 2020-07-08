@@ -1,6 +1,6 @@
 from django import forms
-from .models import Contact
-from .models import Notes
+from .models import Contact, Note
+
 
 
 class ContactForm(forms.ModelForm):
@@ -23,21 +23,6 @@ class ContactForm(forms.ModelForm):
       }
 
 
-# from django import forms
-# from django.forms import ModelForm
-
-# from .models import Promise
 
 
-# class DateInput(forms.DateInput):
-#     input_type = 'date'
 
-
-# class PromiseForm(ModelForm):
-
-#     class Meta:
-#         model = Promise
-#         fields = ['title', 'description', 'made_on']
-#         widgets = {
-#             'made_on': DateInput(),
-#         }
