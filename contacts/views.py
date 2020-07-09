@@ -56,19 +56,34 @@ def contact_detail(request,pk):
     contact = get_object_or_404(Contact, pk=pk)
     return render(request,"contacts/contact_view.html", {"contact": contact})
 
-def add_NoteForm (request,pk):
-    contact = get_object_or_404(Contact, pk=pk)
+# def add_NoteForm (request,pk):
+#     contact = get_object_or_404(Contact, pk=pk)
+#     if request.method == 'GET':
+#         form = NoteForm()
+
+#     else:
+#         form = NoteForm
+#         (data=request.POST)
+
+#     if form.is_valid():
+
+#         form.save()
+#         return redirect
+#         (to='contat_detail')
+
+#     return render(request,"contacts/vint.:pk>/notes/",{'form': form})
+
+def add_note(request):
     if request.method == 'GET':
         form = NoteForm()
-
     else:
-        form = NoteForm
-        (data=request.POST)
+        form = NoteForm(data=request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect(to='list_contacts')
 
-    if form.is_valid():
+    return render(request, "contacts/add_contact.html", {"form": form})
 
-        form.save()
-        return redirect
-        (to='contat_detail')
-
-    return render(request,"contacts/vint.:pk>/notes/",{'form': form})
+# def contact_detail(request):
+#     if request.method =='GET':
+#         form = 
