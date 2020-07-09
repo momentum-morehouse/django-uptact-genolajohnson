@@ -45,9 +45,20 @@
     </div>
     {% endfor %}
     {% endif %}
-
-
-
     </div> 
+
+<!-- breakpoint() -->
+
+<!-- <div>{% if contact.email %} -->
+<div class = 'new.notes'>
+    {% if contact.notes %}
+    {% for note in new.notes.all %}
+    <div class="flex">
+      <div class="pr2"><i 
+      <div>{{ new.notes }}</div>
+    </div>
+    {% endfor%}
+    {% endif %}
+</div>
 </div>  
 {% endblock %}

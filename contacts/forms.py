@@ -28,3 +28,5 @@ class NoteForm(forms.ModelForm):
         fields = ['text']
 
 
+
+

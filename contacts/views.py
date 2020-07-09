@@ -87,3 +87,14 @@ def add_note(request):
 # def contact_detail(request):
 #     if request.method =='GET':
 #         form = 
+
+def new_note(request):
+    if request.method == 'GET':
+        form = NewNote()
+    else:
+        form = NewNote(data=request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect(to='contacts')
+
+    return render(request, "contacts/new_note.html", {"form": form})

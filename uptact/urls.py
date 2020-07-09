@@ -34,9 +34,11 @@ urlpatterns = [
     path('contacts/<int:pk>/',
         contacts_views.contact_detail,
         name='contact_detail,'),
-]
+    path('contacts/<int:pk>/notes/',
+        contact_views.new_note,
+        name='new_note,')
 
-if settings.DEBUG:
+if settings.DEBUG
     import debug_toolbar
     urlpatterns = [
         path('__debug__/', include(debug_toolbar.urls)),
